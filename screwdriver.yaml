@@ -8,4 +8,4 @@ jobs:
     rollback:
         image: node:6
         steps:
-            - echo: rolling back version `meta get version`
+            - echo: echo rolling back version `meta get version`
