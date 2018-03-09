@@ -1,0 +1,11 @@
+jobs:
+    deploy:
+        requires: [~pr, ~commit]
+        image: node:8
+        steps:
+            - echo: echo deploying
+            - meta: meta set version 1
+    rollback:
+        image: node:6
+        steps:
+            - echo: rolling back version `meta get version`
