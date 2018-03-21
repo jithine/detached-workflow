@@ -23,9 +23,9 @@ jobs:
         steps:
             - echo: echo testing wast and west
             - metas: |
-                meta get build;
-                meta get east
-                meta get west
+                meta get version;
+                meta get east;
+                meta get west;
     rollback:
         image: node:6
         steps:
