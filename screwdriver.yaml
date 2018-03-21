@@ -1,6 +1,6 @@
 jobs:
     build:
-        requires: [~pr, ~commit]
+        requires: [~pr, ~commit, ~sd@378:main]
         image: node:8
         steps:
             - echo: echo building
