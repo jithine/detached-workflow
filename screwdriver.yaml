@@ -1,10 +1,31 @@
 jobs:
-    deploy:
+    build:
         requires: [~pr, ~commit]
         image: node:8
         steps:
-            - echo: echo deploying
+            - echo: echo building
             - meta: meta set version 1
+    deploy-east:
+        requires: [build]
+        image: node:8
+        steps:
+            - echo: echo deploying east
+            - meta: meta set east 2
+    deploy-west:
+        requires: [build]
+        image: node:8
+        steps:
+            - echo: echo deploying west
+            - meta: meta set west 3
+    tests:
+        requires: [deploy-west, deploy-east]
+        image: node:8
+        steps:
+            - echo: echo testing wast and west
+            - metas: |
+                meta get build;
+                meta get east
+                meta get west
     rollback:
         image: node:6
         steps:
