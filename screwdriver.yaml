@@ -4,6 +4,7 @@ jobs:
         image: node:8
         steps:
             - echo: echo building
+            - sleep: sleep 20s
             - meta: meta set version 1
     deploy-east:
         requires: [build]
