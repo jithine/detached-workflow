@@ -1,6 +1,6 @@
 jobs:
     build:
-        requires: [~pr, ~commit, ~sd@16:rollback]
+        requires: [~pr, ~commit]
         image: node:12
         steps:
             - echo: echo building
@@ -31,3 +31,8 @@ jobs:
         image: node:12
         steps:
             - echo: echo rolling back version `meta get version`
+    build-rollback:
+        requires: [~sd@16:rollback]
+        image: node:12
+        steps:
+            - echo: echo building
